@@ -61,7 +61,11 @@ const Scanner = () => {
             className="selectalgoritmo"
             >
             <option value="naive">
-                Busca Simples
+                Busca Naive
+            </option>
+
+            <option value="boyer">
+                Boyer
             </option>
 
             <option value="kmp">
