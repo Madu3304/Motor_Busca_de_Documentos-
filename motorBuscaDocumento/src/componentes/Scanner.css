@@ -1,0 +1,89 @@
+
+.scannerpai {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.scannerpai h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.botaopesquisa {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.texto {
+  padding: 10px 15px;
+  width: 300px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.texto:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.botaoazul {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botaoazul:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.botaoazul:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.resultado {
+  margin-top: 30px;
+  border-top: 2px solid #edf2f7;
+  padding-top: 20px;
+}
+
+.resultadolistado {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #f7fafc;
+  border-left: 4px solid #4a90e2;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 4px;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.naolocalizado {
+  color: #718096;
+  font-style: italic;
+  text-align: center;
+}
