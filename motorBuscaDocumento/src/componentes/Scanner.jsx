@@ -7,6 +7,8 @@ const Scanner = () => {
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [algorithm, setAlgorithm] = useState('naive')
+  const [searchData, setSearchData] = useState(null)
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0])
   }
@@ -32,6 +34,7 @@ const Scanner = () => {
 
       const data = await response.json()
       setResults(data.matches || [])
+      setSearchData(data)
     } catch (error) {
       console.error('Erro ao buscar dados:', error)
     } finally {
@@ -85,24 +88,52 @@ const Scanner = () => {
     </div>
 
     <div className="resultado">
-      <h3>Resultados encontrados:</h3>
+    <h3>Resultados encontrados:</h3>
 
-      {results.length > 0 ? (
-        <ul className="resultadolistado">
-          {results.map((res, index) => (
-            <li key={index} className="item">
-              ...{res}...
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="naolocalizado">
-          Nenhum resultado para exibir.
+    {searchData && (
+        <div className="metricas">
+
+        <p>
+            Tempo: {searchData.execution_time_ms.toFixed(2)} ms
         </p>
-      )}
+
+        <p>
+            Ocorrências: {searchData.occurrences}
+        </p>
+
+        <p>
+            Posições: {searchData.positions.join(', ')}
+        </p>
+
+        <p>
+            Tamanho do Texto (N): {searchData.text_size_n}
+        </p>
+
+        <p>
+            Tamanho do Padrão (M): {searchData.pattern_size_m}
+        </p>
+
+        </div>
+    )}
+
+    {results.length > 0 ? (
+        <ul className="resultadolistado">
+
+        {results.map((res, index) => (
+            <li key={index} className="item">
+            ...{res}...
+            </li>
+        ))}
+
+        </ul>
+    ) : (
+        <p className="naolocalizado">
+        Nenhum resultado para exibir.
+        </p>
+    )}
     </div>
-  </div>
-)
+    </div>
+  )
 }
 
 export default Scanner
